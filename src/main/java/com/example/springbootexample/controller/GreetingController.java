@@ -1,6 +1,8 @@
 package com.example.springbootexample.controller;
 
 import com.example.springbootexample.model.Greeting;
+import com.example.springbootexample.service.GreetingService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +13,8 @@ import java.util.concurrent.atomic.AtomicLong;
 @RestController
 public class GreetingController {
 
+    @Autowired
+    private GreetingService greetingService;
     private static final String template="Hello %s";
     private static AtomicInteger counter=new AtomicInteger();
     @GetMapping("/hello")
