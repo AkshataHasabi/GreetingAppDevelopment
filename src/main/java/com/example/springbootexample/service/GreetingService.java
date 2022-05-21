@@ -41,5 +41,19 @@ public class GreetingService {
     public List<Greeting>getAllMessages() {
         return  repo.findAll();
     }
+
+    public Greeting updatemessage(Greeting greeting) {
+        Greeting existingMessage = repo.findById(greeting.getId()).orElse(null);
+        System.out.println(greeting);
+        if(existingMessage == null) {
+            System.out.println("Emp not found");
+            return  repo.save(greeting);
+        }else  {
+            existingMessage.setMessage(greeting.getMessage());
+            repo.save(existingMessage);
+        }
+        return greeting;
+    }
+
 }
 

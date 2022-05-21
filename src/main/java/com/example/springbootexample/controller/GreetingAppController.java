@@ -50,4 +50,9 @@ public class GreetingAppController {
         return greetingService.getAllMessages();
     }
 
+    @PutMapping("/updatemessage")
+    public Greeting updateMessage(@RequestBody Greeting greeting) {
+        return greetingService.updatemessage(greeting);
+    }
+
 }
