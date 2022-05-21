@@ -55,5 +55,14 @@ public class GreetingService {
         return greeting;
     }
 
+    public String deleteMessageByID(int id) {
+        Greeting messageId = repo.getById(id);
+        if(messageId != null) {
+            repo.deleteById(id);
+            return "message deleted succesfully";
+        }
+        return "not found message";
+    }
+
 }
 

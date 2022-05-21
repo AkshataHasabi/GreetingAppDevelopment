@@ -55,4 +55,9 @@ public class GreetingAppController {
         return greetingService.updatemessage(greeting);
     }
 
+    @DeleteMapping("/{id}")
+    public String deleteMessageByID(@PathVariable int id) {
+        return greetingService.deleteMessageByID(id);
+    }
+
 }
