@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class GreetingAppController {
     @Autowired
@@ -24,7 +26,18 @@ public class GreetingAppController {
     }
     @PostMapping("/postusername")
     public ResponseEntity<String> getGreeting(@RequestBody User user){
-        return new ResponseEntity<String>(greetingService.postMessage(user.getfName(), user.getlName()),HttpStatus.OK);
+        return new ResponseEntity<String>(greetingService.postMessage(user.getFName(), user.getLName()),HttpStatus.OK);
+    }
+
+    @PostMapping("/addmessage")
+    public Greeting addMessage(@RequestBody Greeting greeting) {
+        return greetingService.addMessage(greeting);
+    }
+
+    // Add more than 1 user
+    @PostMapping("/addmessages")
+    public List<Greeting> addAllMessages(@RequestBody List<Greeting> greeting) {
+        return greetingService.addAllMessages(greeting);
     }
 
 }

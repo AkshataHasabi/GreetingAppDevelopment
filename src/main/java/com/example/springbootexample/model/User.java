@@ -1,30 +1,24 @@
 package com.example.springbootexample.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
-    public String getfName() {
-        return fName;
-    }
-
-    public User() {
-    }
-
-    public void setfName(String fName) {
-        this.fName = fName;
-    }
-
-    public User(String fName, String lName) {
-        this.fName = fName;
-        this.lName = lName;
-    }
-
-    public String getlName() {
-        return lName;
-    }
-
-    public void setlName(String lName) {
-        this.lName = lName;
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
 
     private String fName;
     private String lName;
+    private String email;
 }
