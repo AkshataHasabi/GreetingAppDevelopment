@@ -34,10 +34,16 @@ public class GreetingAppController {
         return greetingService.addMessage(greeting);
     }
 
-    // Add more than 1 user
+    // Add more than 1 message
     @PostMapping("/addmessages")
     public List<Greeting> addAllMessages(@RequestBody List<Greeting> greeting) {
         return greetingService.addAllMessages(greeting);
     }
+
+    @GetMapping("/{id}")
+    public Greeting getmessageById(@PathVariable int id) {
+        return greetingService.getMessageByID(id);
+    }
+
 
 }
