@@ -45,5 +45,9 @@ public class GreetingAppController {
         return greetingService.getMessageByID(id);
     }
 
+    @GetMapping("/findAllGreeting")
+    public List<Greeting> findAllGreetingMessage(){
+        return greetingService.getAllMessages();
+    }
 
 }

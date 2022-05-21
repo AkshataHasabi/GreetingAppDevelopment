@@ -37,5 +37,9 @@ public class GreetingService {
     public Greeting getMessageByID(int id) {
         return repo.findById(id).orElse(null);
     }
+
+    public List<Greeting>getAllMessages() {
+        return  repo.findAll();
+    }
 }
 
